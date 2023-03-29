@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/bacb737d-5e70-442b-afad-9a7dd393d640/resourceGroups/natural-market/providers/Microsoft.Web/sites/natural-market",
+    "appService.deploySubpath": "."
+}
