@@ -31,9 +31,9 @@ export const organizarDatosPedido = async (req,res,next)=>{
                 "email": "test_user_1878633363@testuser.com",
             },
             "back_urls": {
-                "success": "http://localhost:5000/pedido/success",
-                "failure": "http://localhost:5000/pedido/failure",
-                "pending": "http://localhost:5000/pedido/pending"
+                "success": "https://natural-market.onrender.com/pedido/success",
+                "failure": "https://natural-market.onrender.com/pedido/failure",
+                "pending": "https://natural-market.onrender.com/pedido/pending"
             },
             "auto_return": "approved",
             "notification_url": `${process.env.NOTIFICACIONES}pedido/ipn`,
