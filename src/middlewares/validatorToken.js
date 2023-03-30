@@ -4,7 +4,6 @@ import { generateToken, tokenVerificationErrors } from "../utils/tokenManage.js"
 //valida el token para hacer consultas
 export const requireToken =(req,res,next)=>{
     try {
-        //console.log("entro a token");
         let token = req.headers?.authorization;
         if (!token) throw new Error("No Bearer");
         token = token.split(" ")[1];
@@ -22,8 +21,6 @@ export const requireToken =(req,res,next)=>{
 export const requireRefreshToken=(req,res)=>{
     try {
         const {refreshtoken}= req.params;
-        console.log(refreshtoken);
-        console.log(req.params);
         if (!refreshtoken) return res.status(401).json({error: "Error datos"})
         const tokenRefresh =refreshtoken; //cookie.split("=")[1];
         const {uid} = jwt.verify(tokenRefresh, process.env.JWT_REFRESH);
