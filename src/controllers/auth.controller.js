@@ -54,8 +54,9 @@ export const loginUsuario= async (req,res)=>{
         if(!user.confirmarCuenta) 
             return res.status(400).json({error: "antes de continuar verifique su cuenta con el enlace enviado al email registrado"});
         const {token} = generateToken(user.id);
-        const {refreshToken, expiresIn} = refreshTokenCookie(user.id, user.nombre, res);
-        res.status(201).json({token: token, nombre: user.nombre, refreshToken,expiresIn})
+        //const {refreshToken, expiresIn} = 
+        refreshTokenCookie(user.id, user.nombre, res);
+        res.status(201).json({token: token, nombre: user.nombre})
     } catch (error) {
         console.log(error);
     }
