@@ -10,7 +10,7 @@ import cookieParser from "cookie-parser";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const whiteList=[process.env.ORIGIN1,process.env.ORIGIN2,"https://natural-market-front.onrender.com","https://vasudevatiendaonline.shop","https://natural-market.netlify.app/"];
+const whiteList=[process.env.ORIGIN1,process.env.ORIGIN2,"https://natural-market-front.onrender.com","https://vasudevatiendaonline.shop","https://natural-market.netlify.app"];
 const corsOptions ={
     origin:'*', 
     credentials:true,            //access-control-allow-credentials:true
