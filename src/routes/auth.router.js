@@ -11,7 +11,7 @@ const router = Router();
 
 router.post("/register", userRegisterBodyValidator, registroUsuario);
 router.post("/login", loginBodyValidator, loginUsuario);
-router.get("/logout", logout)
+router.get("/logout", logout);
 router.get("/confirmar/:token", confirmarUsuario);
 router.get("/refresh/:refreshtoken", requireRefreshToken);
 router.get("/refreshdatos/:id",validarParams, requireToken, refrescarUsuario);

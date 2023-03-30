@@ -19,10 +19,11 @@ export const requireToken =(req,res,next)=>{
 }
 
 //valida el refresh token guardado en la cookie para generar el token de consulta y devolverlo junto al id
-export const requireRefreshToken=(req,res,next)=>{
+export const requireRefreshToken=(req,res)=>{
     try {
         const {refreshtoken}= req.params;
         console.log(refreshtoken);
+        console.log(req.params);
         if (!refreshtoken) return res.status(401).json({error: "Error datos"})
         const tokenRefresh =refreshtoken; //cookie.split("=")[1];
         const {uid} = jwt.verify(tokenRefresh, process.env.JWT_REFRESH);
