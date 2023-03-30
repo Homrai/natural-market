@@ -16,11 +16,12 @@ export const refreshTokenCookie = (uid, nombre, res)=>{
     const expiresIn=60*60*24*30;
     try {
         const refreshToken = jwt.sign({uid,nombre}, process.env.JWT_REFRESH, {expiresIn});
-        res.cookie("refreshToken", refreshToken,{
-            httpOnly:true,
-            Secure: true,
-            expires: new Date(Date.now()+expiresIn*1000),
-        });
+        // res.cookie("refreshToken", refreshToken,{
+        //     httpOnly:true,
+        //     Secure: true,
+        //     expires: new Date(Date.now()+expiresIn*1000),
+        // });
+        console.log(refreshToken);
         return {refreshToken,expiresIn}
     } catch (error) {
         res.status(401).send({error:tokenVerificationErrors[error.message]});
