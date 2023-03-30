@@ -47,15 +47,15 @@ export const loginUsuario= async (req,res)=>{
             return res.status(400).json({error: "Datos incorrectos, intente de nuevo"})
         
         const asd = await user.comparePassword(password);
-
+        
         if (!asd) {
             return res.status(400).json({error: "Datos incorrectos, intente de nuevo"})
         }
         if(!user.confirmarCuenta) 
             return res.status(400).json({error: "antes de continuar verifique su cuenta con el enlace enviado al email registrado"});
-        const {token, expiresIn} = generateToken(user.id);
-        refreshToken(user.id, user.nombre, res);
-        res.status(201).json({token: token, nombre: user.nombre})
+        const {token} = generateToken(user.id);
+        const {refreshToken, expiresIn} = refreshToken(user.id, user.nombre, res);
+        res.status(201).json({token: token, nombre: user.nombre, refreshToken,expiresIn})
     } catch (error) {
         console.log(error);
     }
