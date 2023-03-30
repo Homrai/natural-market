@@ -22,6 +22,7 @@ export const requireToken =(req,res,next)=>{
 export const requireRefreshToken=(req,res,next)=>{
     try {
         const {refreshtoken}= req.params;
+        console.log(refreshtoken);
         if (!refreshtoken) return res.status(401).json({error: "Error datos"})
         const tokenRefresh =refreshtoken; //cookie.split("=")[1];
         const {uid} = jwt.verify(tokenRefresh, process.env.JWT_REFRESH);
