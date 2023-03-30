@@ -1,6 +1,6 @@
 import { User } from "../../src/models/userModel.js"
 import { envioCorreo } from "../../src/utils/enviarMail.js";
-import { generateToken, refreshToken, registroToken } from "../../src/utils/tokenManage.js";
+import { generateToken, refreshTokenCookie, registroToken } from "../../src/utils/tokenManage.js";
 
 
 //recibe los datos para el registro del usuario
@@ -54,7 +54,7 @@ export const loginUsuario= async (req,res)=>{
         if(!user.confirmarCuenta) 
             return res.status(400).json({error: "antes de continuar verifique su cuenta con el enlace enviado al email registrado"});
         const {token} = generateToken(user.id);
-        const {refreshToken, expiresIn} = refreshToken(user.id, user.nombre, res);
+        const {refreshToken, expiresIn} = refreshTokenCookie(user.id, user.nombre, res);
         res.status(201).json({token: token, nombre: user.nombre, refreshToken,expiresIn})
     } catch (error) {
         console.log(error);

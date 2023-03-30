@@ -12,7 +12,7 @@ export const generateToken=(uid)=>{
 };
 
 //genera refresh token para actualizar el token de operaciones
-export const refreshToken = (uid, nombre, res)=>{
+export const refreshTokenCookie = (uid, nombre, res)=>{
     const expiresIn=60*60*24*30;
     try {
         const refreshToken = jwt.sign({uid,nombre}, process.env.JWT_REFRESH, {expiresIn});
