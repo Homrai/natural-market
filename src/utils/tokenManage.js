@@ -21,7 +21,7 @@ export const refreshTokenCookie = (uid, nombre, res)=>{
             // Secure: true,
             // expires: new Date(Date.now()+expiresIn*1000),
         });
-        //return {refreshToken,expiresIn}
+        return {refreshToken,expiresIn}
     } catch (error) {
         res.status(401).send({error:tokenVerificationErrors[error.message]});
     }
