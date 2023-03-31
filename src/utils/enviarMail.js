@@ -29,14 +29,11 @@ import { MailtrapClient } from "mailtrap"
 
 export const envioCorreo= async (emailRecibido, tokenConfirm)=>{
   try {
-      const TOKEN = "055712f10fd677f2f6a6b4f6c43167ab";
-      const ENDPOINT = "https://send.api.mailtrap.io/";
-
-      const client = new MailtrapClient({ endpoint: ENDPOINT, token: TOKEN });
+      const client = new MailtrapClient({ endpoint: process.env.ENDPOINT, token: process.env.MAILTRAP_TOKEN });
 
       const sender = {
         email: "mailtrap@vasudevatiendaonline.shop",
-        name: "Mailtrap Test",
+        name: "Natural Market",
       };
       const recipients = [
         {
