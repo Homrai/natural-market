@@ -26,7 +26,7 @@ import { MailtrapClient } from "mailtrap"
 //   }
 // };
 
-
+//envia el token al email para confirmar la cuenta al correo
 export const envioCorreo= async (emailRecibido, tokenConfirm)=>{
   try {
       const client = new MailtrapClient({ endpoint: process.env.ENDPOINT, token: process.env.MAILTRAP_TOKEN });
@@ -45,11 +45,10 @@ export const envioCorreo= async (emailRecibido, tokenConfirm)=>{
         .send({
           from: sender,
           to: recipients,
-          subject: "You are awesome!",
+          subject: "Confirmar cuenta",
           html:`<p>Hola solo falta un ultimo paso para la creacion de tu cuenta, haz click en el enlace: </p> <a href="https://natural-market.onrender.com/auth/confirmar/${tokenConfirm}">Verifica tu cuenta</a><p>si no has sido tu porfavor ignora este mensaje.</p>`,
           category: "Integration Test",
-        })
-        .then(console.log, console.error);
+        });
     
   } catch (error) {
     console.log(error);
