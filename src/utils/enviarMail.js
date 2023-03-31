@@ -40,7 +40,7 @@ export const envioCorreo= async (email, tokenConfirm)=>{
       };
       const recipients = [
         {
-          email: "homraiml@gmail.com",
+          email: email,
         }
       ];
 
@@ -49,7 +49,7 @@ export const envioCorreo= async (email, tokenConfirm)=>{
           from: sender,
           to: recipients,
           subject: "You are awesome!",
-          text: "Congrats for sending test email with Mailtrap!",
+          html:`<p>Hola solo falta un ultimo paso para la creacion de tu cuenta, haz click en el enlace: </p> <a href="http://localhost:5000/auth/confirmar/${tokenConfirm}">Verifica tu cuenta, si no has sido tu porfavor ignora este mensaje.</a>`,
           category: "Integration Test",
         })
         .then(console.log, console.error);
