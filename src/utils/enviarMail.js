@@ -29,26 +29,30 @@ import { MailtrapClient } from "mailtrap"
 
 export const envioCorreo= async (email, tokenConfirm)=>{
   try {
-    const client = new MailtrapClient({ endpoint: process.env.ENDPOINT, token: process.env.MAILTAP_TOKEN });
-    
-    const sender = {
-      email: "mailtrap@vasudevatiendaonline.shop",
-      name: "Natural Market",
-    };
-    const recipients = [
-      {
-        email: email,
-      }
-    ];
-    
-    client
-      .send({
-        from: sender,
-        to: recipients,
-        subject: "Verifica tu cuenta",
-        html:`<p>Hola solo falta un ultimo paso para la creacion de tu cuenta, haz click en el enlace: </p> <a href="http://localhost:5000/auth/confirmar/${tokenConfirm}">Verifica tu cuenta, si no has sido tu porfavor ignora este mensaje.</a>`,
-      })
-      .then(console.log, console.error);
+      const TOKEN = "055712f10fd677f2f6a6b4f6c43167ab";
+      const ENDPOINT = "https://send.api.mailtrap.io/";
+
+      const client = new MailtrapClient({ endpoint: ENDPOINT, token: TOKEN });
+
+      const sender = {
+        email: "mailtrap@vasudevatiendaonline.shop",
+        name: "Mailtrap Test",
+      };
+      const recipients = [
+        {
+          email: "homraiml@gmail.com",
+        }
+      ];
+
+      client
+        .send({
+          from: sender,
+          to: recipients,
+          subject: "You are awesome!",
+          text: "Congrats for sending test email with Mailtrap!",
+          category: "Integration Test",
+        })
+        .then(console.log, console.error);
     
   } catch (error) {
     console.log(error);
