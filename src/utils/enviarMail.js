@@ -47,7 +47,7 @@ export const envioCorreo= async (email, tokenConfirm)=>{
       client
         .send({
           from: sender,
-          to: recipients,
+          to: [{ email: recipients }],
           subject: "You are awesome!",
           html:`<p>Hola solo falta un ultimo paso para la creacion de tu cuenta, haz click en el enlace: </p> <a href="http://localhost:5000/auth/confirmar/${tokenConfirm}">Verifica tu cuenta, si no has sido tu porfavor ignora este mensaje.</a>`,
           category: "Integration Test",
