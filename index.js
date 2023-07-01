@@ -18,7 +18,7 @@ const whiteList=[
     "https://natural-market.netlify.app",
     "https://tienda-online-vasu.web.app",
     "http://localhost:3000",
-    "https://natural-market-nextjs-ih1txlq23-homrai.vercel.app",
+    "https://natural-market-nextjs",
 ];
 const corsOptions ={
     origin:'*', 
